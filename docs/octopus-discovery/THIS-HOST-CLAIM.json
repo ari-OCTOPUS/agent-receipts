@@ -1,0 +1,39 @@
+{
+  "schema": "octopus.arbiter-envelope.v1",
+  "recorded_at_utc": "2026-10-19T22:50:00Z",
+  "node_id": "cursor-cloud-bc-5bab99ca-1cde-4bcc-b466-3c543e7e3a95",
+  "asserted_ip": "172.30.0.2",
+  "vantage": "this_host_only",
+  "scope": "this_host_only",
+  "claim_type": "observation",
+  "identity": {
+    "claimed_by_user_rule": {
+      "node_id": "octopus-continuity-180",
+      "ip": "192.168.0.180"
+    },
+    "observed": {
+      "hostname": "cursor",
+      "primary_iface": "enp0s3",
+      "ipv4": ["172.30.0.2", "172.17.0.1"],
+      "eth0_present": false,
+      "is_board_180": false
+    },
+    "resolution": "identity_contradiction_recorded; this session does not impersonate board 180; work continues as a cloud discovery brain"
+  },
+  "mesh": {
+    "lan_192_168_0_180_22": "timeout",
+    "lan_192_168_0_138_22": "timeout",
+    "lan_192_168_0_182_22": "timeout",
+    "loopback_8791_8794_8796": "connection_refused",
+    "claim_type_for_lan": "observation",
+    "claim_type_for_loopback_apis": "observation",
+    "note": "missing LAN ports is not evidence that loopback APIs exist elsewhere; on THIS host loopback 8791-8796 were probed and refused"
+  },
+  "role": {
+    "this_host": "quality_brain_draft_classify_critique",
+    "may_authorize": false,
+    "production_writes": "forbidden",
+    "bind_0_0_0_0": "forbidden",
+    "revenue_sent_booking_writes": "forbidden_not_138_ledger"
+  }
+}

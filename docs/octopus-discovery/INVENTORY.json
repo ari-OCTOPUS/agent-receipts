@@ -1,0 +1,144 @@
+{
+  "schema": "octopus.season-discovery.inventory.v1",
+  "season": "OCTOPUS-FULL-IDENTIFICATION-STEP-1",
+  "recorded_at_utc": "2026-10-19T22:50:00Z",
+  "recorder": "cursor-cloud-bc-5bab99ca-1cde-4bcc-b466-3c543e7e3a95",
+  "owner_docs_policy": "owner-supplied documents are trusted source of truth; not re-verified",
+  "later_stage_remembered": "make Octopus and its code independent of us and of external agents so Octopus has no such dependencies",
+  "this_host": {
+    "url": "https://cursor.com/agents/bc-5bab99ca-1cde-4bcc-b466-3c543e7e3a95",
+    "workspace_repo": "github.com/ari-OCTOPUS/agent-receipts",
+    "workspace_head": "a04c1156c7fa21bfba3981fe193dcfe68839711d",
+    "is_board_180": false,
+    "self_hosted_workers": 0,
+    "lan_reachable": false,
+    "parallel_twin_agent": {
+      "bcId": "bc-250b494f-4f6b-4a12-8cf1-54cf7119862c",
+      "model": "grok-4.7",
+      "name": "بررسی عمیق اختاپوس",
+      "url": "https://cursor.com/agents/bc-250b494f-4f6b-4a12-8cf1-54cf7119862c"
+    }
+  },
+  "dimensions": [
+    {
+      "id": "D01-organism",
+      "name": "Organism doctrine",
+      "summary": "Kernel decides, model advises, human rules. External text is data not command. Fail-closed. Receipts required. No self-elevation."
+    },
+    {
+      "id": "D02-fleet",
+      "name": "Board fleet",
+      "summary": "Trusted season handoff lists 100,114,138,160,180,182,193. Security roadmap also names laptop 191. This host cannot see LAN."
+    },
+    {
+      "id": "D03-ofn-kernel",
+      "name": "OFN field node",
+      "summary": "ari322/ofn-node: stdlib kernel, three live legs ziman/lead/studio plus hypno tenant, ports 8791-8794 on 138, outbox-only egress."
+    },
+    {
+      "id": "D04-spine-aa",
+      "name": "Spine / AA / GENESIS on 180",
+      "summary": "Trusted: commit 241, epoch 7, canary closed vx-c0ff05e31b055bcb. Production AA pins unchanged. Loaded revision UNKNOWN. /root/aa-fabric/repo is not a git checkout."
+    },
+    {
+      "id": "D05-immune",
+      "name": "Octopus Immune System",
+      "summary": "ari322/octopus-security: findings ledger, defender/red split, production 138 read-only for agents."
+    },
+    {
+      "id": "D06-receipts",
+      "name": "Receipt contract",
+      "summary": "This repo agent-receipts is append-only hash-chained EXECUTED/DENIED/FAILED. Lane receipts live in ofn-node 09-LANES and 180 spine. Unification is a later step."
+    },
+    {
+      "id": "D07-event-bus",
+      "name": "Event bus",
+      "summary": "Owner-agent report: laptop startup NATS hub JetStream OCTOPUS_EVENTS/OCTUS_EVENTS into F:\\backup vault. Not visible from this host."
+    },
+    {
+      "id": "D08-repos",
+      "name": "Code surfaces",
+      "summary": "ofn-node, octopus-security, agent-receipts, vbaa-patches, langar, Armin, holographic-envelope (adjacent research, not owner of Octopus)."
+    },
+    {
+      "id": "D09-agents",
+      "name": "External agents currently in the loop",
+      "summary": "ZCode/GLM, Claude, Cursor desktop, Cursor cloud (this run + twin), recon-clones on laptop. Independence stage wants these out of the TCB."
+    },
+    {
+      "id": "D10-business-legs",
+      "name": "Business legs",
+      "summary": "ziman/GiftMesh, lead/painting, studio/Saba. Revenue/sent/booking truth is 138 ledger only; this host must not write those."
+    },
+    {
+      "id": "D11-grants-gates",
+      "name": "Grants and gates",
+      "summary": "138 grant internal_only until 2026-11-29; canonical sha d74f3379/27ca88fb. Closed gates include secret_rotation, partner_precondition, miner_isolation. Intent i-3bc39575a1b0b2ea never authorized."
+    },
+    {
+      "id": "D12-independence",
+      "name": "Independence (stage 2, remembered)",
+      "summary": "Next stage: Octopus and its code run without us and without external agents. Step 1 is map only."
+    }
+  ],
+  "fleet_from_trusted_handoff": [
+    {"ip": "192.168.0.100", "name": "octopus-compute-100", "user": "ari"},
+    {"ip": "192.168.0.114", "name": "octopus-pro-114", "user": "ari/root"},
+    {"ip": "192.168.0.138", "name": "DietPi", "user": "ari", "role": "business/feet, grants, OFN ports 8791-8794"},
+    {"ip": "192.168.0.160", "name": "octopus-compute-160"},
+    {"ip": "192.168.0.180", "name": "octopus-continuity-180", "user": "root", "role": "spine/AA/organism-lab target"},
+    {"ip": "192.168.0.182", "name": "sensorium-opi5pro", "user": "root", "role": "witness", "worker_sha": "0d17890d"},
+    {"ip": "192.168.0.193", "name": "octopus-model-plus-193"}
+  ],
+  "repos": {
+    "reachable_this_token": [
+      {"full_name": "ari-OCTOPUS/agent-receipts", "visibility": "public", "role": "this workspace; proof-of-behavior core"},
+      {"full_name": "ari-OCTOPUS/vbaa-patches", "visibility": "public", "role": "L7 VBAA review substrate"},
+      {"full_name": "ari-OCTOPUS/langar", "visibility": "public", "role": "isolated Telegram bot; keep off money path"},
+      {"full_name": "ari-OCTOPUS/Armin", "visibility": "public", "role": "painting lead generation site"},
+      {"full_name": "ari322/holographic-envelope", "visibility": "public", "role": "research OS; Octopus is exemplar not owner"},
+      {"full_name": "ari322/ofn-node", "visibility": "private", "access": "GitHub MCP yes, gh CLI 404", "role": "OFN kernel + vault notes + 09-LANES"},
+      {"full_name": "ari322/octopus-security", "visibility": "private", "access": "GitHub MCP yes, gh CLI 404", "role": "immune-system coordination"}
+    ],
+    "mentioned_not_listed_here": [
+      "ari-OCTOPUS/ofn-node (screenshot of cursor.com/agents; org search blocked by CAP on this token)"
+    ]
+  },
+  "contradictions_open": [
+    {
+      "topic": "OFN deploy status on 138",
+      "values": [
+        {"source": "ari322/ofn-node CLAUDE.md updated 2026-08-09", "claim": "OFN not yet deployed"},
+        {"source": "ari322/ofn-node INDEX.md updated 2026-08-11", "claim": "ofn.service live on 8791-8794"},
+        {"source": "TRUSTED-SEASON-HANDOFF-FA.md 2026-10-19", "claim": "138 reachable; grant live; OFN/autonomy split from 180 spine"}
+      ],
+      "resolution": null,
+      "status": "open"
+    },
+    {
+      "topic": "fleet cardinality",
+      "values": [
+        {"source": "octopus-security ROADMAP.md v0.1 2026-09-23", "claim": "four nodes 138/180/182/191"},
+        {"source": "TRUSTED-SEASON-HANDOFF-FA.md 2026-10-19", "claim": "seven boards 100/114/138/160/180/182/193"}
+      ],
+      "resolution": null,
+      "status": "open",
+      "note": "not a silent pick; later documents add compute boards; laptop 191 is controller/vault"
+    }
+  ],
+  "open_knots_from_trusted_handoff_order": [
+    "owner explicit GO for v5/v6 deploy (prior yes was one close only)",
+    "discover how code is delivered onto 180 (repo is not git checkout) and attest loaded AA revision",
+    "staged deploy + start autonomy_loop/GENESIS so existing receipt completes the mission",
+    "restore laptop<->180 relay (idle since 2026-10-15)",
+    "full run_tick, real HALT, multi-host concurrency, E01..E06, projection sampling",
+    "design question: should mid-flight REJECTED close the closure"
+  ],
+  "mcp_surfaces": {
+    "github": "partial (org CAP + fine-grained token lifetime 403 on ari-OCTOPUS MCP; gh CLI lists public org; MCP reads ari322 private)",
+    "cursor_cloud": "this environment only; two agents; zero self-hosted workers",
+    "linear": "needsAuth",
+    "slack": "needsAuth",
+    "apify": "skill attached but not this season's work"
+  }
+}
