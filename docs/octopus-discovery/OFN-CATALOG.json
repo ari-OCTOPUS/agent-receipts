@@ -1,0 +1,74 @@
+{
+  "schema": "octopus.season-discovery.ofn-catalog.v1",
+  "source": "GitHub MCP get_file_contents/list_branches/list_commits on ari322/ofn-node",
+  "recorded_at_utc": "2026-10-19T22:55:00Z",
+  "claim_type": "agent_reported",
+  "note": "Tree inventory of the private ofn-node default branch. Not a live board observation. SEASON-HORIZON-01 is not in this GitHub tree (search_code total_count 0).",
+  "head": {
+    "branch": "main",
+    "sha": "d87576127d735c5869e226e1c65719aa73d4f204",
+    "committed_at_utc": "2026-10-13T00:09:57Z",
+    "message_summary": "feat(enrichment): intake guard + consent_basis provenance (#326)",
+    "suite_claim_in_commit": "10323 pass / 1 pre-existing nft red"
+  },
+  "other_named_branches": {
+    "release/p0": "d2f805fc514f90e740bb39f5e0a8631538f6c47f",
+    "sync/octopus-20261015": "055870af3cd6e149784cc583509e00dc61e4f22c",
+    "import/ofn-fabric-baseline": "ad6ec0e857f2d82abb86237c145724c17f331ab8",
+    "ofn/heartbeat": "06b3a327497b1916c10dcb4100c9cd52844cbd52",
+    "ofn/wire": "3ad3c07a7ec417b964ffa5cc4355299caffc717c",
+    "ofn/board-snapshot-20260816": "32a81d034acb833b22204d969bf41ce2870b1d05",
+    "landing/release-p0-20260902": "2c5b99baa6dd2f0e39d564eec5f9f1d1a4636887",
+    "season-s6-report-20260922": "f68134e9f722f252739f85fd9b738b0bf10beb14"
+  },
+  "branch_pages_fetched": 3,
+  "branch_count_listed": 224,
+  "runtime_truth_contract": {
+    "path": "contracts/runtime_truth_v1.py",
+    "schema": "runtime_truth.v1",
+    "node_ids": ["138", "180", "182", "laptop"],
+    "f1_status": ["LIVE", "PRESENT_UNWIRED", "STALE", "NOT_FOUND", "UNKNOWN"],
+    "gov_status": ["OPEN", "BLOCKED", "PARKED", "OWNER_DECISION", "BROKEN"],
+    "rules": [
+      "empty receipt => UNKNOWN never LIVE",
+      "empty readers => PRESENT_UNWIRED never LIVE"
+    ]
+  },
+  "packages": {
+    "ofn/kernel": "stdlib decision lattice; halt, tenancy, risk, quota, gates, arbiter_claim, fleet, receipts, 200+ P1 class/pin modules matching 09-LANES/P1-*",
+    "ofn/adapters": "I/O: ledger, facts, outbox, http_api, boot, backup, shopify, telegram_glass, halt_flag, self_model_producer, vault_witness",
+    "ofn/agents": "harvest, imap, quotes, owner_notify, glass_runner, outbound_worker, consent_gate, doctor",
+    "ofn/ziman_cycle": "catalog, gates, state_machine, runner, verify",
+    "ofn/wavegate": "contracts, cache, delta, dedup_adapter",
+    "octopus_exec": "checkpoint, contracts, experience, handoff, resource_budget, snapshot_reader, topology",
+    "octopus_observation": "claim_adapter, observation_record, scorer, verifier, fixtures",
+    "octopus_recovery": "restore_drill",
+    "octopus_security_bridge": "bridge, pipeline",
+    "octopus_survival": "economy, loop, paint_followup, telegram_bridge",
+    "shadow_homeostasis": "canonical, evidence_store, homeostasis, metacontrol, observation, pipeline, registry, trust, world_model"
+  },
+  "docs_top_level": [
+    "agent-context", "architecture", "audit-138", "cockpit-v2", "consent",
+    "discovery-138", "governance", "handoffs", "integrations", "lanes",
+    "lineage", "octopus-mesh", "octopus-os", "octopus-rapid", "octopus-surgery",
+    "operations", "prompts", "receipts", "season", "security", "spine-138",
+    "workflows"
+  ],
+  "docs_octopus_mesh": [
+    "ADR-F2-COUNTER-CANONICAL.md", "README_FA.md", "RISK_REGISTER.md",
+    "RUNTIME-V1-STATUS.md", "SESSION_AGENT_PROTOCOL_FA.md", "SHARED_SYSTEM_MODEL_FA.md"
+  ],
+  "docs_octopus_os": [
+    "00-OWNER-ABSENCE-PLAN.md", "02-AGENT-CONTRACTS.yaml", "06-TOKEN-BUDGETS.yaml",
+    "07-INCIDENTS.md", "08-GOV-V6-CANARY.md", "OTEL-EVENT-MAPPING.md"
+  ],
+  "docs_season_in_github": [
+    "SEASON-2026-08-31_09-01.md",
+    "SEASON-2026-09-02-OPTIONS.template.json"
+  ],
+  "kernel_lock_files_read": {
+    "arbiter_claim.py": "default scope this_host_only; grants_send structurally False; identity mismatch fail-closed; missing LAN ports = UNKNOWN not loopback_absent; disk absence = body_not_on_this_host",
+    "halt.py": "absent flag file = RUNNING; unparsable/empty = HALTED (fail closed on)",
+    "fleet.py": "health from proven work not pings; no baseline => UNKNOWN; docstring cites a 162-unit mining registry never benchmarked — orthogonal to the 7-board compute fleet in the trusted handoff"
+  }
+}

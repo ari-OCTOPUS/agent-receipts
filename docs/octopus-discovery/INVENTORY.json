@@ -1,7 +1,8 @@
 {
   "schema": "octopus.season-discovery.inventory.v1",
   "season": "OCTOPUS-FULL-IDENTIFICATION-STEP-1",
-  "recorded_at_utc": "2026-10-19T22:50:00Z",
+  "recorded_at_utc": "2026-10-19T22:55:00Z",
+  "dimension_count": 17,
   "recorder": "cursor-cloud-bc-5bab99ca-1cde-4bcc-b466-3c543e7e3a95",
   "owner_docs_policy": "owner-supplied documents are trusted source of truth; not re-verified",
   "later_stage_remembered": "make Octopus and its code independent of us and of external agents so Octopus has no such dependencies",
@@ -79,6 +80,31 @@
       "id": "D12-independence",
       "name": "Independence (stage 2, remembered)",
       "summary": "Next stage: Octopus and its code run without us and without external agents. Step 1 is map only."
+    },
+    {
+      "id": "D13-decisions",
+      "name": "Locked owner decisions D-1..D-28",
+      "summary": "Indexed from ofn-node DECISIONS.md. D-27 opens organism gates with caps; secret_rotation still closed until real rotate."
+    },
+    {
+      "id": "D14-p1-lattice",
+      "name": "P1 kernel contract lattice",
+      "summary": "ofn/kernel class/pin modules paired with 09-LANES/P1-* folders."
+    },
+    {
+      "id": "D15-runtime-truth",
+      "name": "F1 runtime_truth.v1",
+      "summary": "Frozen contract. Nodes 138/180/182/laptop. No receipt or no readers => never LIVE."
+    },
+    {
+      "id": "D16-code-runtimes",
+      "name": "Code runtimes in ofn-node tree",
+      "summary": "kernel/adapters/agents/ziman_cycle/wavegate plus octopus_* and shadow_homeostasis. main d8757612 2026-10-13. Horizon season not in GitHub."
+    },
+    {
+      "id": "D17-mesh-os-docs",
+      "name": "Documented mesh and octopus-os",
+      "summary": "docs/octopus-mesh and docs/octopus-os. Halt: absent=RUNNING, corrupt=HALTED."
     }
   ],
   "fleet_from_trusted_handoff": [
@@ -124,8 +150,33 @@
       "resolution": null,
       "status": "open",
       "note": "not a silent pick; later documents add compute boards; laptop 191 is controller/vault"
+    },
+    {
+      "topic": "mining fleet vs compute fleet",
+      "values": [
+        {"source": "ofn/kernel/fleet.py docstring", "claim": "registry of 162 units never benchmarked"},
+        {"source": "TRUSTED-SEASON-HANDOFF-FA.md", "claim": "seven compute/sensor boards"}
+      ],
+      "resolution": null,
+      "status": "open",
+      "note": "treat as two registries until a runtime source unifies them"
+    },
+    {
+      "topic": "where SEASON-HORIZON-01 lives",
+      "values": [
+        {"source": "owner trusted handoff", "claim": "lane worktree on laptop F:/wt-season-horizon-01-20261019"},
+        {"source": "GitHub search_code SEASON-HORIZON repo:ari322/ofn-node", "claim": "zero hits"}
+      ],
+      "resolution": "horizon season is not on GitHub ofn-node main",
+      "status": "open"
     }
   ],
+  "ofn_node_git": {
+    "main": "d87576127d735c5869e226e1c65719aa73d4f204",
+    "branches_listed": 224,
+    "catalog": "docs/octopus-discovery/OFN-CATALOG.json",
+    "decisions": "docs/octopus-discovery/DECISIONS-INDEX.json"
+  },
   "open_knots_from_trusted_handoff_order": [
     "owner explicit GO for v5/v6 deploy (prior yes was one close only)",
     "discover how code is delivered onto 180 (repo is not git checkout) and attest loaded AA revision",
