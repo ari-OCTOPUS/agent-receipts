@@ -1,0 +1,63 @@
+{
+  "schema": "octopus.season-discovery.event-receipt-layers.v1",
+  "recorded_at_utc": "2026-10-19T23:00:00Z",
+  "receipt_layers": [
+    {
+      "id": "R1-agent-receipts",
+      "where": "github.com/ari-OCTOPUS/agent-receipts",
+      "shape": "JSONL hash-chained EXECUTED|DENIED|FAILED",
+      "this_season_file": "receipts/season-discovery-20261019.jsonl"
+    },
+    {
+      "id": "R2-kernel-execution-receipt",
+      "where": "ofn/kernel/receipts.py",
+      "shape": "ExecutionReceipt id rcp-{epoch}-{rand}; outcomes ok|rejected|failed; never send_authorized/quote_sent/campaign_envelope_ready; HALT does not block in-flight mint"
+    },
+    {
+      "id": "R3-ofn-docs-receipts",
+      "where": "ofn-node docs/receipts/",
+      "files": [
+        "RECEIPT-20260930-aliases-apply-run.json",
+        "RECEIPT-20260930-lead-identity-aliases.md",
+        "RECEIPT-20261009-alias-readers.md",
+        "RECEIPT-20261011-intake-guard.md"
+      ]
+    },
+    {
+      "id": "R4-witness-mint",
+      "where": "138 ofn/adapters/witness_mint.py; contract docs/spine-138/WITNESS-MINT-CONTRACT.md",
+      "shape": "138 is sole minter; 180/182 never self-mint; STRUCTURAL_PASS != EXECUTABLE_PASS; OwnerDecision required for executable cards"
+    },
+    {
+      "id": "R5-spine-180",
+      "where": "trusted season handoff /root/aa-fabric/repo/ofn-fabric/WP16A/state/",
+      "shape": "verified_completions vx-c0ff05e31b055bcb; not re-verified from this host"
+    }
+  ],
+  "event_bus_layers": [
+    {
+      "id": "E1-nats-leaf-mirror-contract",
+      "where": "contracts/event_envelope_v1.py + contracts/nats_leaf_mirror_init.py",
+      "status": "empty init, enabled=False, enabled=true forbidden in this slice, no network, no writer cutover",
+      "envelope": "event_envelope.v1 mandatory trace_id, source_node in {138,180,182,laptop}, trust_level LOCAL|PEER|UNTRUSTED, event_time, record_time",
+      "owner_vote": "NATS_LEAF_MIRROR supersedes LOCAL_CRDT"
+    },
+    {
+      "id": "E2-octomesh-ssh",
+      "where": "docs/spine-138/TRANSPORT-CONTRACT.md",
+      "status": "138->180 business spine over EXISTING SSH mesh only; ACK=receive not processed; no new broker/port"
+    },
+    {
+      "id": "E3-laptop-nats-hub",
+      "where": "owner-trusted external-agent report OCTOPUSFleetServices / JetStream OCTOPUS_EVENTS",
+      "status": "not visible from this cloud host"
+    }
+  ],
+  "three_board_roles_from_mesh_docs": {
+    "source": "docs/octopus-mesh/SHARED_SYSTEM_MODEL_FA.md + RUNTIME-V1-STATUS.md",
+    "138": "commander / reconciler / executor / ledger-owner",
+    "180": "quality-brain PROPOSE_ONLY may_authorize=false",
+    "182": "lab-witness read-only may_authorize=false",
+    "autonomy_v1_2026_08_26": "9 daemons written on 138; 11 systemd units verified not enabled; STATUS=PARTIAL waiting 180/182 canary"
+  }
+}

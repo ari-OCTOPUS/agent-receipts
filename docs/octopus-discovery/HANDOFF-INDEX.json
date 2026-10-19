@@ -1,0 +1,26 @@
+{
+  "schema": "octopus.season-discovery.handoff-index.v1",
+  "source": "ari322/ofn-node HANDOFF.md via GitHub MCP",
+  "recorded_at_utc": "2026-10-19T23:00:00Z",
+  "claim_type": "agent_reported",
+  "front_matter": {
+    "updated": "2026-09-02",
+    "size_bytes_approx": 92947,
+    "lines": 1551,
+    "note": "This file is a session log, not live board state. Newer than CLAUDE.md (2026-08-09), older than ofn-node main (2026-10-13) and the Oct 19 trusted season handoff."
+  },
+  "status_box_2026_09_02": {
+    "gates": "secret_rotation/partner_precondition official window until 2026-09-16; miner_isolation closed; secret_rotation risk_accepted_unrotated",
+    "wire": "outbound default off",
+    "bots": ["ziman", "lead", "studio/studio_partner", "owner", "hypno"],
+    "services_named": ["ofn", "hypno-fugu-mini", "cloudflared", "dropbare", "ofn-heartbeat", "octopus-bridge"],
+    "domains": ["panel", "ziman", "lead", "studio", "app", "hypno"],
+    "bridge": "octopus-bridge CONTROL_URL=192.168.0.191:8801, G5 healthz 200, G6 pull locks on 16 Aug",
+    "heartbeat": "ofn-heartbeat.service -> branch ofn/heartbeat ~10min",
+    "sync": "official GitHub sync; SMB dropped 16 Aug",
+    "D-27": "caps 25/50/0 recorded 2026-09-02",
+    "next_proof": "one real payment receipt on PAINT-L5-001"
+  },
+  "session_log": "reverse-chronological sessions from 2026-09-02 back through August operations-launch O1-O12, COMPLETE-FINISH H-M, P1-P4 A-G",
+  "not_done": "line-by-line reading of all 1551 lines; numbers inside old sessions are historical"
+}

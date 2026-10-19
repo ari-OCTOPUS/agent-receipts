@@ -1,0 +1,43 @@
+{
+  "schema": "octopus.season-discovery.decisions-index.v1",
+  "source": "ari322/ofn-node DECISIONS.md via GitHub MCP",
+  "recorded_at_utc": "2026-10-19T22:55:00Z",
+  "locked": [
+    {"id": "D-1", "title": "accumulation metric is share of issuance, not raw count"},
+    {"id": "D-2", "title": "coin age window 1-8 weeks"},
+    {"id": "D-3", "title": "diversity before optimization"},
+    {"id": "D-4", "title": "money boundary is a pinned allowlist"},
+    {"id": "D-5", "title": "addresses in weekly batches"},
+    {"id": "D-6", "title": "auto pool switch, human coin switch"},
+    {"id": "D-7", "title": "variable electricity is not a decision"},
+    {"id": "D-8", "title": "miner isolation layered defense; still a closed gate miner_isolation"},
+    {"id": "D-9", "title": "partner access revoke requires restart"},
+    {"id": "D-10", "title": "cost formula lives in pack not schema"},
+    {"id": "D-11", "title": "auto marketing requested — deferred not rejected"},
+    {"id": "D-12", "title": "partner time is not counted as cost, and the page says so"},
+    {"id": "D-13", "title": "direct-message automation deleted, not suspended"},
+    {"id": "D-14", "title": "original photo is not archived; hash of what left remains"},
+    {"id": "D-15", "title": "sensitivity is a machine gate not a label"},
+    {"id": "D-16", "title": "model name comes from the response not the request"},
+    {"id": "D-17", "title": "O-2 closed — RandomX now has ASICs; Monero hard-reject under D-1"},
+    {"id": "D-18", "title": "shell may speak without auth"},
+    {"id": "D-19", "title": "empty state is not a deadlock"},
+    {"id": "D-20", "title": "archive is a state not a tab"},
+    {"id": "D-21", "title": "album id is tenant-scoped"},
+    {"id": "D-22", "title": "technical text must not reach the user"},
+    {"id": "D-23", "title": "lead score from weighted model not heuristic"},
+    {"id": "D-24", "title": "lead egress locked until secrets rotate"},
+    {"id": "D-25", "title": "GiftMesh is a brand not a tenant"},
+    {"id": "D-26", "title": "canonical body is dual; concept becomes real with three things"},
+    {"id": "D-27", "title": "ALL GATES OPEN with caps; propose_only=no; secret_rotation and partner_precondition still closed until real rotate; first proof = one real payment receipt on PAINT-L5-001"},
+    {"id": "D-28", "title": "rule edge; three fields are not forged; secret_rotation risk_accepted_unrotated; GATE_OPEN_UNTIL_UTC 2026-09-16"}
+  ],
+  "open_owner_items": [
+    {"id": "O-1", "status": "closed_into_D-8"},
+    {"id": "O-2", "status": "open_or_closed_into_D-17", "note": "DECISIONS body still shows O-2 open heading while D-17 claims it closed — contradiction recorded"},
+    {"id": "O-3", "title": "ESP32 three types and LoRa for 40", "status": "open"},
+    {"id": "O-4", "title": "lens 7 not executed", "status": "open"},
+    {"id": "O-5", "title": "revenue-week rulings 2026-08-11", "status": "open"}
+  ],
+  "forever_rejected_examples": ["Verus and similar mature chains as MARGINAL under D-1"]
+}

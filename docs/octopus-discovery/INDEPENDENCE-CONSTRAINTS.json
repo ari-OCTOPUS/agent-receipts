@@ -1,0 +1,93 @@
+{
+  "schema": "octopus.season-discovery.independence-constraints.v1",
+  "recorded_at_utc": "2026-10-19T23:20:00Z",
+  "stage": 2,
+  "executed_now": false,
+  "owner_intent": "make Octopus and its code independent of us and of external agents so Octopus has no such dependencies",
+  "meaning": "constraints that keep the organism coupled to humans-outside-the-kernel or to vendor agents; later stage removes these from the TCB",
+  "in_tcb_today": [
+    {
+      "id": "C-cursor-cloud",
+      "what": "Cursor cloud agents including this run and twin grok-4.7",
+      "why_coupled": "discovery/archive and future code changes currently happen here"
+    },
+    {
+      "id": "C-cursor-desktop",
+      "what": "Cursor Desktop on laptop 191",
+      "why_coupled": "owner IDE; screenshots showed cursor.com/agents panel"
+    },
+    {
+      "id": "C-zcode",
+      "what": "ZCode/GLM on the laptop (external-agent transcripts)",
+      "why_coupled": "season horizon and forensic reports were produced there"
+    },
+    {
+      "id": "C-claude",
+      "what": "Claude as defender in octopus-security and Claude Code on 138 constitution",
+      "why_coupled": "named arm in the loop; not kernel"
+    },
+    {
+      "id": "C-github",
+      "what": "github.com/ari322/ofn-node and ari-OCTOPUS/* as code transport",
+      "why_coupled": "180 repo is not a git checkout; delivery mechanism UNKNOWN — GitHub is one candidate coupling"
+    },
+    {
+      "id": "C-cloudflare",
+      "what": "cloudflared public hostnames panel/ziman/lead/studio",
+      "why_coupled": "ingress vendor; HANDOFF names it as a live service"
+    },
+    {
+      "id": "C-hosted-brains",
+      "what": "remote brains fugu/fugu-ultra/DeepSeek/GLM APIs",
+      "why_coupled": "README ofn-node: local brain deliberately absent; host brains not armed on board in older docs"
+    },
+    {
+      "id": "C-laptop-controller",
+      "what": "DESKTOP-KA9RFN5 / 192.168.0.191 vault F:\\backup and OCTOPUSFleetServices",
+      "why_coupled": "NATS hub and recon-clones live there; this cloud host cannot see them"
+    },
+    {
+      "id": "C-shared-mesh-keys",
+      "what": "H6 shared mesh keys across boards",
+      "why_coupled": "theft of one board = SSH to others — boards are not independent of each other"
+    }
+  ],
+  "structurally_already_independent": [
+    "kernel admit()/executable() has no LLM import path from HTTP (AST-locked)",
+    "outbox is the only egress door",
+    "grants_send() is False on claim, receipt, and start permit",
+    "quote_sent is OWNER-ONLY and sealed in A7 revenue chain",
+    "HALT absent=RUNNING corrupt=HALTED; start permit never grants send",
+    "owner-absence unit tests exist for seven chaos scenarios; Chaos Day (P7) itself has not been run"
+  ],
+  "owner_absence_plan": {
+    "path": "docs/octopus-os/00-OWNER-ABSENCE-PLAN.md",
+    "blob_sha": "06e9a6bebe7f45ec89e9128f2c741714850208e8",
+    "premise": "if the only recovery is calling the owner, the project is not yet a product",
+    "chaos_day_status": "plan + unit tests exist; 24-hour exercise open (P7)",
+    "scenarios": [
+      {"id": 1, "inject": "one source dies", "expect": "UNKNOWN not FALSE"},
+      {"id": 2, "inject": "agent timeout", "expect": "other arms continue"},
+      {"id": 3, "inject": "rate limit", "expect": "bounded backoff then PARKED"},
+      {"id": 4, "inject": "duplicate delivery", "expect": "one effect"},
+      {"id": 5, "inject": "one arm budget exhausted", "expect": "that arm stops"},
+      {"id": 6, "inject": "global HALT", "expect": "no new runs; in-flight close allowed"},
+      {"id": 7, "inject": "recovery without owner", "expect": "close defective run and start again"}
+    ],
+    "still_needs_owner": [
+      "any external send (quote_sent / transport binding)",
+      "secret rotation",
+      "HELD items on the outbox",
+      "any policy relaxation or gate removal"
+    ]
+  },
+  "first_operational_knot_unchanged": "how code is delivered onto /root/aa-fabric/repo on 180; loaded AA revision UNKNOWN",
+  "independence_blocked_by": [
+    "v5/v6 consumer not deployed (owner GO required)",
+    "180 code-delivery mechanism undiscovered",
+    "autonomy_loop and GENESIS not running on 180",
+    "laptop<->180 relay idle since 2026-10-15",
+    "A3 independent builder agent missing",
+    "A5 unified event spine missing"
+  ]
+}
