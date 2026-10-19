@@ -1,0 +1,142 @@
+{
+  "schema": "octopus.season-discovery.gates-and-arms.v1",
+  "recorded_at_utc": "2026-10-19T23:20:00Z",
+  "source_of_truth": "code, always; YAML is a map not the territory",
+  "choke_point": {
+    "path": "ofn/kernel/gates.py",
+    "blob_sha": "554bfd73da5118bd0e378a22ea99ee67d25b88d8",
+    "functions": ["admit", "executable"],
+    "order": ["kill switch", "quota", "risk", "human sovereignty"],
+    "order_rationale": "quota before risk so a RED action cannot reserve budget while waiting for a human",
+    "admit_never_executes": true,
+    "tiers": {
+      "GREEN": "auto, reversible, stays inside the node",
+      "YELLOW": "leaves the node — one approval",
+      "RED": "irreversible or sensitive — two-step confirmation"
+    },
+    "extra_precheck": "tenant of action must match pack tenant"
+  },
+  "start_permit": {
+    "path": "ofn/kernel/start_permit.py",
+    "blob_sha": "2b7c3d90c52b09396f30cc1b437f56720f42e205",
+    "halt_stops": "STARTS not in-flight",
+    "grants_send": false,
+    "halt_blocks_in_flight": false,
+    "burns_idempotency_key": false,
+    "refusal_reasons": ["halt_active", "sealed_effect"],
+    "sealed_effect_names": ["send_authorized", "quote_sent", "campaign_envelope_ready"],
+    "constructor_refuses_grants_send_true": true
+  },
+  "owner_grant_from_trusted_handoff": {
+    "host": "138",
+    "path": "/home/ari/ofn/state/owner_dialogue/hold_external_sot.v1.json",
+    "scope": "internal_only",
+    "expires": "2026-11-29T12:47+10:00",
+    "canonical_sha_prefix": ["d74f3379", "27ca88fb"],
+    "not_reverified": true,
+    "transient_rewrite_phenomenon": true
+  },
+  "named_closed_gates": ["secret_rotation", "partner_precondition", "miner_isolation"],
+  "authority_levels": {
+    "A0": "observe",
+    "A1": "propose",
+    "A2": "reversible-external",
+    "A3": "bounded-external"
+  },
+  "envelope": {
+    "version": 1,
+    "factory": "ofn.kernel.envelope.create_envelope",
+    "run_id_minted_at": "trust_boundary",
+    "budget_impl": "ofn.kernel.callbudget.CallBudget",
+    "budget_gate": "envelope.may_spend()",
+    "publish_gate": "ofn.kernel.release_switch.OwnerRelease.may_publish"
+  },
+  "eight_arms": [
+    {
+      "id": "A1_planner",
+      "mission": "decompose + DAG",
+      "blueprint_readiness": "70%",
+      "gap": "explicit task graph",
+      "modules": ["kernel/routing.py", "kernel/allocation.py", "kernel/estimate.py", "kernel/fleet.py", "kernel/callbudget.py", "kernel/quota.py"]
+    },
+    {
+      "id": "A2_research",
+      "mission": "source gathering",
+      "blueprint_readiness": "85%",
+      "gap": "standard evidence bundle",
+      "modules": ["agents/seek_harvest.py", "agents/demand_harvest.py", "agents/nsw_ocp_harvest.py", "agents/h1_harvest.py", "agents/h1_buysw.py", "adapters/trend_sources.py", "adapters/witness_mint.py"],
+      "dead_source_labels": "PR #70 D-31 step 1: h1_buysw/h1_harvest/demand_harvest + nsw_ocp parked"
+    },
+    {
+      "id": "A3_builder",
+      "mission": "code + branches",
+      "blueprint_readiness": "50%",
+      "gap": "independent builder agent",
+      "modules": [".github/workflows/full-suite.yml"]
+    },
+    {
+      "id": "A4_validator",
+      "mission": "red-team + eval",
+      "blueprint_readiness": "80%",
+      "gap": "negative control per gate",
+      "modules": ["kernel/gates.py", "kernel/risk.py", "kernel/safety.py", "kernel/consent.py", "kernel/advisor_gate.py", ".github/CODEOWNERS"]
+    },
+    {
+      "id": "A5_memory",
+      "mission": "context + consolidation",
+      "blueprint_readiness": "60%",
+      "gap": "unified event spine",
+      "modules": ["adapters/facts.py", "adapters/correlation.py", "adapters/lead_store.py", "adapters/audience_store.py", "adapters/consent_store.py", "adapters/marketing_store.py"]
+    },
+    {
+      "id": "A6_operations",
+      "mission": "deploy + health",
+      "blueprint_readiness": "80%",
+      "gap": "production-grade restore drill (E2)",
+      "modules": ["adapters/boot.py", "adapters/watchdog.py", "adapters/backup.py", "adapters/sysmetrics.py", "adapters/alert.py", "adapters/rate_limit.py"]
+    },
+    {
+      "id": "A7_commerce",
+      "mission": "lead to receipt",
+      "blueprint_readiness": "75%",
+      "sealed": "quote_sent OWNER-ONLY",
+      "revenue_chain_state": "harvest done; score; quote_drafted(rp0); policy_checked+campaign_envelope_ready(PR #76); quote_sent OWNER-ONLY structurally sealed",
+      "modules": ["adapters/outbox.py", "adapters/ledger.py", "adapters/lead_store.py", "adapters/commerce_connector.py", "adapters/pilot.py", "adapters/pilot_thresholds.py"]
+    },
+    {
+      "id": "A8_truth",
+      "mission": "registry + audit",
+      "blueprint_readiness": "85%",
+      "rules": ["issues no permissions", "proposal != execution", "one verdict one budget effect"],
+      "modules": ["adapters/ledger.py", "adapters/board_events.py", "adapters/owner_decision.py", "adapters/fake_executor.py", "adapters/run_store.py", "kernel/events.py", "kernel/envelope.py"]
+    }
+  ],
+  "yaml_source": {
+    "path": "docs/octopus-os/02-AGENT-CONTRACTS.yaml",
+    "blob_sha": "a5ab62d65d86c4011719034c90876dd5232e9aaf",
+    "measured_against": "main @67359a6 historically; current ofn-node main d8757612"
+  },
+  "token_caps_from_yaml": {
+    "path": "docs/octopus-os/06-TOKEN-BUDGETS.yaml",
+    "blob_sha": "4213adb06f0cfcc9417b5cb99fcc2a656a2b09e8",
+    "RULES": 0,
+    "LOCAL": 0,
+    "REMOTE": 100,
+    "REMOTE_DEEP": 5,
+    "quote_max_aud": 25000,
+    "lead_daily_send_cap": 10,
+    "campaign_envelope_max_quotes": 10,
+    "central_reserve_percent": 8,
+    "binding": "callbudget.py wins if YAML disagrees"
+  },
+  "gov_v6_canary": {
+    "path": "docs/octopus-os/08-GOV-V6-CANARY.md",
+    "status": "ASSERTED_NOT_PROVEN",
+    "live_three_state_observation": false
+  },
+  "otel_event_mapping": {
+    "path": "docs/octopus-os/OTEL-EVENT-MAPPING.md",
+    "status": "design-only P5 preview; no SDK, no exporter, not wired",
+    "rule": "events stay the spine of record; OTel is a projection never the ledger"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "schema": "octopus.season-discovery.hardware-and-ports.v1",
+  "recorded_at_utc": "2026-10-19T23:20:00Z",
+  "claim_type": "trusted_plus_indexed_docs",
+  "note": "Not probed from this cloud host. LAN timed out. Owner documents trusted; security/HANDOFF docs indexed, not re-verified live.",
+  "controller_laptop": {
+    "ip": "192.168.0.191",
+    "hostname": "DESKTOP-KA9RFN5",
+    "role": "controller + vault + Cursor Desktop + ZCode + NATS hub",
+    "vault": "F:\\backup",
+    "recon_clones": "F:\\recon-clones-20260917",
+    "startup_key": "OCTOPUSFleetServices",
+    "supervisor": {
+      "status_from_trusted_handoff": "FAILED",
+      "failure_counter": 864,
+      "pid": 4264,
+      "script": "aa_supervisor.py",
+      "built_at": "2026-10-18T19:41Z"
+    },
+    "visible_from_this_host": false
+  },
+  "named_ports_from_docs": [
+    {"where": "138", "ports": "8791-8794", "what": "OFN ziman/lead/studio/owner panel"},
+    {"where": "138", "port": 8796, "what": "named in mesh next_move / tunnel wait list"},
+    {"where": "138", "port": 8895, "what": "hypno-fugu-mini (separate from OFN)"},
+    {"where": "138", "port": 9023, "what": "ESP32 heartbeat (PR #321)"},
+    {"where": "182", "ports": "4222, 9101", "what": "NATS / extra from security ledger"},
+    {"where": "180", "port": 8081, "what": "llama/model bind 0.0.0.0 from security ledger"},
+    {"where": "180", "port": 8780, "what": "named service from security ledger"},
+    {"where": "191", "port": 8801, "what": "octopus-bridge CONTROL_URL from HANDOFF 2026-09-02"}
+  ],
+  "peripherals_named_not_opened": [
+    {
+      "id": "ESP32",
+      "status": "O-3 open in DECISIONS; three types and LoRa for 40",
+      "heartbeat_port_on_138": 9023
+    },
+    {
+      "id": "FPGA-A7-Lite-200T",
+      "role": "candidate one-way diode",
+      "status": "board off / untested"
+    }
+  ],
+  "cloudflare_hostnames_from_handoff": ["panel", "ziman", "lead", "studio", "app", "hypno"],
+  "this_host_probes": {
+    "lan_138_180_182_22": "timeout",
+    "loopback_8791_8794_8796": "connection_refused"
+  }
+}

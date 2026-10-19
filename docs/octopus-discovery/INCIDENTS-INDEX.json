@@ -1,0 +1,30 @@
+{
+  "schema": "octopus.season-discovery.incidents-index.v1",
+  "source": "ari322/ofn-node docs/octopus-os/07-INCIDENTS.md @ main d8757612",
+  "recorded_at_utc": "2026-10-19T23:25:00Z",
+  "claim_type": "agent_reported",
+  "blob_sha": "a7c2b1f2817d52fd1028be0f82049de5aeba6221",
+  "size_bytes": 466976,
+  "approx_lines": 1403,
+  "purpose": "owner-absent periodic session log: what merged, what stayed blocked, what receipt was taken",
+  "house_rules": ["every number has method + body (branch/sha)", "UNKNOWN not FALSE", "append-only", "no verbatim external mirrors — pointer + sha256"],
+  "policy_test": "tests/test_incidents_log_policy.py",
+  "first_dated_entry": "2026-09-02",
+  "last_dated_entry": "2026-09-06 session qq (PR #204 require-fresh-base after #210)",
+  "vintage_vs_main": "log last dated 2026-09-06; ofn-node main is 2026-10-13 — this is not live Oct 19 state",
+  "line_by_line_read": false,
+  "header_facts_indexed": {
+    "2026-09-02_session_i": {
+      "merged": "none — main locked behind require-independent-approval; author cannot self-review",
+      "external_send": "RESOLVED-AUTHORIZED: owner said 2026-08-31 permission was real; six real NSW agency emails under PAINT-L5-001 on board138 outbound-effects.sqlite3; first send 2026-09-01T13:16:59Z",
+      "containment": "OCTOPUS_WIRE_LEAD_OUTBOUND_WAL set to 0 by owner hand",
+      "quote_sent": "waits GO or secret rotation; revenue path may proceed to quote_drafted"
+    }
+  },
+  "ytscholar": {
+    "named_in_prior_agent_notes": true,
+    "github_search_ofn-node": 0,
+    "github_search_ari322_and_ari-OCTOPUS": 0,
+    "status": "not in reachable GitHub trees; remains a named laptop/vault research memory, not a catalogued code surface"
+  }
+}

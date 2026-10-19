@@ -1,8 +1,8 @@
 {
   "schema": "octopus.season-discovery.inventory.v1",
   "season": "OCTOPUS-FULL-IDENTIFICATION-STEP-1",
-  "recorded_at_utc": "2026-10-19T22:55:00Z",
-  "dimension_count": 19,
+  "recorded_at_utc": "2026-10-19T23:20:00Z",
+  "dimension_count": 25,
   "recorder": "cursor-cloud-bc-5bab99ca-1cde-4bcc-b466-3c543e7e3a95",
   "owner_docs_policy": "owner-supplied documents are trusted source of truth; not re-verified",
   "later_stage_remembered": "make Octopus and its code independent of us and of external agents so Octopus has no such dependencies",
@@ -74,12 +74,12 @@
     {
       "id": "D11-grants-gates",
       "name": "Grants and gates",
-      "summary": "138 grant internal_only until 2026-11-29; canonical sha d74f3379/27ca88fb. Closed gates include secret_rotation, partner_precondition, miner_isolation. Intent i-3bc39575a1b0b2ea never authorized."
+      "summary": "admit() order kill/quota/risk/human. Eight arms A1-A8. 138 grant internal_only until 2026-11-29. Closed gates secret_rotation, partner_precondition, miner_isolation. Catalog: GATES-AND-ARMS.json."
     },
     {
       "id": "D12-independence",
       "name": "Independence (stage 2, remembered)",
-      "summary": "Next stage: Octopus and its code run without us and without external agents. Step 1 is map only."
+      "summary": "Nine external couplings still in TCB. Kernel already structurally independent of LLM HTTP. Chaos Day unrun. Catalog: INDEPENDENCE-CONSTRAINTS.json."
     },
     {
       "id": "D13-decisions",
@@ -115,6 +115,36 @@
       "id": "D19-github-handoff",
       "name": "ofn-node HANDOFF.md vintage",
       "summary": "Updated 2026-09-02, 1551-line session log. Not live. Names octopus-bridge to 192.168.0.191:8801."
+    },
+    {
+      "id": "D20-token-budgets",
+      "name": "Token / money caps",
+      "summary": "REMOTE 100, REMOTE_DEEP 5, quote_max_aud 25000, lead_daily_send_cap 10. callbudget.py wins over YAML."
+    },
+    {
+      "id": "D21-owner-absence",
+      "name": "Owner-absence / chaos plan",
+      "summary": "Seven unit-tested scenarios. 24-hour Chaos Day (P7) not run. Owner still required for send, rotate, HELD, policy relaxation."
+    },
+    {
+      "id": "D22-gov-v6",
+      "name": "GOV-V6 canary",
+      "summary": "ASSERTED_NOT_PROVEN. Live three-state observation missing. Distinct from Oct 19 spine canary."
+    },
+    {
+      "id": "D23-lanes",
+      "name": "09-LANES inventory",
+      "summary": "106 GitHub entries: 90 P1-* dirs, L0-L9 in CSV (only L1/L7/LB dirs present). Catalog: LANES-INDEX.json."
+    },
+    {
+      "id": "D24-hardware-ports",
+      "name": "Hardware, ports, laptop controller",
+      "summary": "191 vault/NATS hub unseen here. ESP32 O-3 open. FPGA untested. Ports catalogued not probed. Catalog: HARDWARE-AND-PORTS.json."
+    },
+    {
+      "id": "D25-otel-map",
+      "name": "OTEL event mapping",
+      "summary": "Design-only P5. No SDK. Events remain the ledger; OTel would be a projection."
     }
   ],
   "fleet_from_trusted_handoff": [
@@ -179,6 +209,16 @@
       ],
       "resolution": "horizon season is not on GitHub ofn-node main",
       "status": "open"
+    },
+    {
+      "topic": "L0-L9 directories vs LANE-MATRIX",
+      "values": [
+        {"source": "09-LANES/LANE-MATRIX.csv", "claim": "lanes L0 through L9 exist as a process matrix"},
+        {"source": "09-LANES directory listing @ d8757612", "claim": "only L1, L7, LB directories are present; L0/L2-L6/L8/L9 have no folder"}
+      ],
+      "resolution": null,
+      "status": "open",
+      "note": "matrix is a plan; missing folders are not silent proof the lanes ran"
     }
   ],
   "ofn_node_git": {
@@ -187,7 +227,12 @@
     "catalog": "docs/octopus-discovery/OFN-CATALOG.json",
     "decisions": "docs/octopus-discovery/DECISIONS-INDEX.json",
     "handoff_index": "docs/octopus-discovery/HANDOFF-INDEX.json",
-    "event_receipt_layers": "docs/octopus-discovery/EVENT-AND-RECEIPT-LAYERS.json"
+    "event_receipt_layers": "docs/octopus-discovery/EVENT-AND-RECEIPT-LAYERS.json",
+    "gates_and_arms": "docs/octopus-discovery/GATES-AND-ARMS.json",
+    "independence": "docs/octopus-discovery/INDEPENDENCE-CONSTRAINTS.json",
+    "lanes_index": "docs/octopus-discovery/LANES-INDEX.json",
+    "hardware_and_ports": "docs/octopus-discovery/HARDWARE-AND-PORTS.json",
+    "incidents_index": "docs/octopus-discovery/INCIDENTS-INDEX.json"
   },
   "open_knots_from_trusted_handoff_order": [
     "owner explicit GO for v5/v6 deploy (prior yes was one close only)",
