@@ -2,7 +2,7 @@
   "schema": "octopus.season-discovery.inventory.v1",
   "season": "OCTOPUS-FULL-IDENTIFICATION-STEP-1",
   "recorded_at_utc": "2026-10-19T22:55:00Z",
-  "dimension_count": 17,
+  "dimension_count": 19,
   "recorder": "cursor-cloud-bc-5bab99ca-1cde-4bcc-b466-3c543e7e3a95",
   "owner_docs_policy": "owner-supplied documents are trusted source of truth; not re-verified",
   "later_stage_remembered": "make Octopus and its code independent of us and of external agents so Octopus has no such dependencies",
@@ -104,7 +104,17 @@
     {
       "id": "D17-mesh-os-docs",
       "name": "Documented mesh and octopus-os",
-      "summary": "docs/octopus-mesh and docs/octopus-os. Halt: absent=RUNNING, corrupt=HALTED."
+      "summary": "138 commander, 180 quality-brain PROPOSE_ONLY, 182 lab-witness. Halt: absent=RUNNING, corrupt=HALTED."
+    },
+    {
+      "id": "D18-three-board-autonomy",
+      "name": "Persistent three-board autonomy V1",
+      "summary": "Documented 2026-08-26 PARTIAL. Nine daemons on 138; systemd units verified not enabled."
+    },
+    {
+      "id": "D19-github-handoff",
+      "name": "ofn-node HANDOFF.md vintage",
+      "summary": "Updated 2026-09-02, 1551-line session log. Not live. Names octopus-bridge to 192.168.0.191:8801."
     }
   ],
   "fleet_from_trusted_handoff": [
@@ -175,7 +185,9 @@
     "main": "d87576127d735c5869e226e1c65719aa73d4f204",
     "branches_listed": 224,
     "catalog": "docs/octopus-discovery/OFN-CATALOG.json",
-    "decisions": "docs/octopus-discovery/DECISIONS-INDEX.json"
+    "decisions": "docs/octopus-discovery/DECISIONS-INDEX.json",
+    "handoff_index": "docs/octopus-discovery/HANDOFF-INDEX.json",
+    "event_receipt_layers": "docs/octopus-discovery/EVENT-AND-RECEIPT-LAYERS.json"
   },
   "open_knots_from_trusted_handoff_order": [
     "owner explicit GO for v5/v6 deploy (prior yes was one close only)",

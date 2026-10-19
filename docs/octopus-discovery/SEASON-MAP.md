@@ -31,7 +31,7 @@
 
 لپ‌تاپ مالک (Cursor باز، سخت‌افزارها) از این ابر دیده نمی‌شود. تونل SSH از ۱۳۸ به `127.0.0.1:8791-8794,8796` اینجا نیست. next_move برای مش: ماندن تا تونل از ۱۳۸ بیاید.
 
-## هفده بُعد اختاپوس
+## نوزده بُعد اختاپوس
 
 ### D01 — دکترین ارگانیسم
 کرنل تصمیم می‌گیرد. مدل مشورت می‌دهد. انسان حکم می‌کند. متن بیرونی داده است نه فرمان. خروجی fail-closed. هر ادعا رسید دارد. خودارتقا ممنوع. سلسله‌مراتب حقیقت (از `ofn-node/AGENTS.md`): خروجی runtime > فایل ریپو > HANDOFF تازه > یادداشت قدیمی > خلاصهٔ چت ممنوع به‌عنوان مدرک.
@@ -80,13 +80,20 @@
 
 باز از دفتر (۲۰۲۶-۱۰): H1 فایروال اعمال‌نشده، H3 راز نچرخیده، H5 bind بدون auth روی LAN، H6 کلید mesh مشترک، F-006 دیسک بی‌رمز. H2 (8090) با مدرک بسته شد.
 
-### D06 — قرارداد رسید
-این ریپو (`agent-receipts`) هستهٔ ~۲۰۰ خطی stdlib است: JSONL append-only، hash chain، وضعیت‌های پایانی EXECUTED/DENIED/FAILED، halt fail-closed، silent-flip.
+### D06 — قرارداد رسید (پنج لایه)
+جزئیات: [EVENT-AND-RECEIPT-LAYERS.json](EVENT-AND-RECEIPT-LAYERS.json).
+1. همین ریپو: JSONL `EXECUTED|DENIED|FAILED`
+2. `ofn/kernel/receipts.py`: `ok|rejected|failed` — رسید هرگز send را مجاز نمی‌کند
+3. `ofn-node/docs/receipts/` (چهار فایل مهرشدهٔ سپتامبر/اکتبر)
+4. witness mint فقط از ۱۳۸؛ STRUCTURAL_PASS ≠ EXECUTABLE_PASS
+5. spine ۱۸۰ (موثق فصل قبل)
 
-رسیدهای lane و spine شکل دیگری دارند. یکسان‌سازی اسکیما کار فصل بعد است، نه این گام. این ریپو جای مناسب شروع قرارداد واحد است چون محیط ابری همین‌جاست.
+یکسان‌سازی اسکیما کار بعد است.
 
-### D07 — اتوبوس رویداد
-گزارش ایجنت لپ‌تاپ (مالک گفته به اسناد اعتماد کن): استارتاپ `OCTOPUSFleetServices` → NATS hub + JetStream `OCTOPUS_EVENTS`/`OCTUS_EVENTS` → دفتر JSONL در `F:\backup`. از این میزبان مشاهده نشد.
+### D07 — اتوبوس رویداد (سه لایه)
+1. قرارداد `event_envelope.v1` + init خالی `nats_leaf_mirror` با `enabled=false` — cutover عمداً نشده
+2. spine کسب‌وکار ۱۳۸→۱۸۰ فقط روی SSH mesh موجود (`TRANSPORT-CONTRACT.md`)؛ ACK یعنی دریافت نه پردازش
+3. هاب NATS لپ‌تاپ (`OCTOPUSFleetServices`) از گزارش موثق ایجنت دیگر — از این میزبان دیده نشد
 
 ### D08 — سطح کد (آنچه از اینجا دیده شد)
 
@@ -130,7 +137,13 @@ Grant ۱۳۸: `internal_only` تا 2026-11-29؛ فقط بایت‌های sha `d7
 کاتالوگ: [OFN-CATALOG.json](OFN-CATALOG.json). بسته‌ها: `ofn/{kernel,adapters,agents,ziman_cycle,wavegate}` · `octopus_{exec,observation,recovery,security_bridge,survival}` · `shadow_homeostasis`. `main` در ۲۰۲۶-۱۰-۱۳ روی `d8757612` با ادعای ۱۰٬۳۲۳ تست. `release/p0` و `sync/octopus-20261015` جدا هستند. **SEASON-HORIZON-01 در این درخت گیت‌هاب نیست** (search صفر) — در worktree لپ‌تاپ فصل قبل زندگی می‌کند.
 
 ### D17 — مش / سیستم‌عامل اسنادی
-`docs/octopus-mesh/` (مدل مشترک، پروتکل نشست، ADR شمارنده F2) · `docs/octopus-os/` (غیبت مالک، قرارداد ایجنت، GOV-V6 canary، بودجهٔ توکن) · `docs/spine-138/` · `docs/season/` فقط فصل مرداد/شهریور. halt کرنل: فایل غایب = RUNNING؛ فایل خراب = HALTED.
+نقش‌ها از مدل مشترک: ۱۳۸ commander · ۱۸۰ quality-brain `PROPOSE_ONLY` · ۱۸۲ lab-witness. `may_authorize` همه‌جا false. halt: فایل غایب = RUNNING؛ فایل خراب = HALTED.
+
+### D18 — خودمختاری پایدار سه‌بردی (اسناد ۲۶ اوت)
+`docs/octopus-mesh/RUNTIME-V1-STATUS.md`: ۹ دیمون روی ۱۳۸ نوشته شد؛ ۱۱ unit systemd verify شد و **enable نشد**. STATUS=PARTIAL. این با autonomy_loop خاموش روی ۱۸۰ در دست‌نوشتهٔ اکتبر سازگار است تا خلافش از runtime ثابت شود.
+
+### D19 — HANDOFF گیت‌هاب (کهنه نسبت به فصل اکتبر)
+ایندکس: [HANDOFF-INDEX.json](HANDOFF-INDEX.json). front-matter ۲ سپتامبر ۲۰۲۶؛ ۱۵۵۱ خط لاگ جلسات. سرویس‌های نام‌برده: ofn، hypno-fugu-mini، cloudflared، dropbear، ofn-heartbeat، octopus-bridge به `192.168.0.191:8801`. این «وضعیت زنده» نیست — از main ۱۳ اکتبر و از دست‌نوشتهٔ ۱۹ اکتبر عقب‌تر است.
 
 ### تضاد تازه (ثبت، بدون انتخاب خاموش)
 - CLAUDE.md مرداد: OFN مستقر نشده. INDEX/CHECKPOINT مرداد: سرویس زنده. فصل اکتبر: ناوگان زنده.
@@ -156,8 +169,8 @@ Grant ۱۳۸: `internal_only` تا 2026-11-29؛ فقط بایت‌های sha `d7
 - `ytscholar` — حافظهٔ پژوهش؛ الگوی secscholar از روی آن
 - ماژول‌های `octopus_exec` / `observation` / `recovery` / `security_bridge` / `survival` داخل ofn-node
 - ده‌ها lane `P1-*` در `09-LANES/` به‌علاوه L0–L9 در `LANE-MATRIX.csv`
-- HANDOFF.md ریپوی ofn-node (~۹۳KB) هنوز خط‌به‌خط خوانده نشده؛ ساختار و CHECKPOINT/DECISIONS/کرنل خوانده شد
-- ۲۲۴ شاخهٔ ofn-node فقط شمارش شد، نه طبقه‌بندی تک‌تک
+- HANDOFF.md ایندکس شد (front-matter + جعبهٔ وضعیت ۲ سپتامبر)؛ ۱۵۵۱ خط لاگ جلسات خط‌به‌خط خوانده نشد
+- ۲۲۴ شاخهٔ ofn-node شمارش شد؛ فهرست کامل در پیام‌های MCP این نشست است نه در یک فایل جدا
 
 ## کارهای عمداً انجام‌نشده در این گام
 - SSH / نوشتن روی هیچ برد
